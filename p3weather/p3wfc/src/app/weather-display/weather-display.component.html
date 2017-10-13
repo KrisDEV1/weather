@@ -1,0 +1,77 @@
+<div class="wsection-bck-img">
+    <div class="col-md-8" (load)=ngOnInit()>
+        <div class="weather-wrap">
+            <div class="weather-header">{{cityName}}</div>
+            <div class="weather-current-temp">{{cityTemperature}}<sup>°</sup></div>
+            <div class="weather-todays-stats">
+                <div class="wt-desc">{{citySkyCondition}}</div>
+                <div class="wt-humidity">Humidity: {{cityHumidity}}%</div>
+                <div class="wt-wind">Wind: {{cityWindDir}}<sup>°</sup> / {{cityWindSpeed}}m/s</div>
+                <div class="wt-wind">Min: {{cityMinTemp}}<sup>°</sup> Max: {{cityMaxTemp}}<sup>°</sup></div>
+            </div>
+        </div>
+        <!-- 5 days forecast -->
+        <div class="weather-wrap weather-wrap-lower">
+            <div class="weather-header">{{cityName}}</div>
+            <div class="weather-current-temp">{{cityTemperature}}<sup>°</sup></div>
+            <div class="weather-forecast">
+                <div class="weather-forecast-day">
+                    <div class="city-weather-icon">
+                        <img ng-if="weather" title="{{citySkyCondition}}"
+                             src="{{cityIconLink}}{{cityForecastIcon1}}.png"/>
+                    </div>
+                    <div class="wfd-temperature">{{cityForecastTemp1}}<sup>°</sup></div>
+                    <div class="wfd-day">{{cityForecastDT1 * 1000 | date : 'dd.MM.yyyy.'}}</div>
+                </div>
+                <div class="weather-forecast-day">
+                    <div class="city-weather-icon">
+                        <img ng-if="weather" title="{{citySkyCondition}}"
+                             src="{{cityIconLink}}{{cityForecastIcon2}}.png"/>
+                    </div>
+                    <div class="wfd-temperature">{{cityForecastTemp2}}<sup>°</sup></div>
+                    <div class="wfd-day">{{cityForecastDT2 * 1000 | date : 'dd.MM.yyyy.'}}</div>
+
+                </div>
+                <div class="weather-forecast-day">
+                    <div class="city-weather-icon">
+                        <img ng-if="weather" title="{{citySkyCondition}}"
+                             src="{{cityIconLink}}{{cityForecastIcon3}}.png"/>
+                    </div>
+                    <div class="wfd-temperature">{{cityForecastTemp3}}<sup>°</sup></div>
+                    <div class="wfd-day">{{cityForecastDT3 * 1000 | date : 'dd.MM.yyyy.'}}</div>
+                </div>
+                <div class="weather-forecast-day">
+                    <div class="city-weather-icon">
+                        <img ng-if="weather" title="{{citySkyCondition}}"
+                             src="{{cityIconLink}}{{cityForecastIcon4}}.png"/>
+                    </div>
+                    <div class="wfd-temperature">{{cityForecastTemp4}}<sup>°</sup></div>
+                    <div class="wfd-day">{{cityForecastDT4 * 1000 | date : 'dd.MM.yyyy.'}}</div>
+                </div>
+                <div class="weather-forecast-day">
+                    <div class="city-weather-icon">
+                        <img ng-if="weather" title="{{citySkyCondition}}"
+                             src="{{cityIconLink}}{{cityForecastIcon5}}.png"/>
+                    </div>
+                    <div class="wfd-temperature">{{cityForecastTemp5}}<sup>°</sup></div>
+                    <div class="wfd-day">{{cityForecastDT5 * 1000 | date : 'dd.MM.yyyy.'}}</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-4">
+        <div class="sidebar-right">
+            <div class="search-area">
+                <input class="city-input" type="text" placeholder="Enter City Name" [(ngModel)]=cityName>
+                <button class="btn city-search-btn" type="text" id="city" (keyup)="onSearchCity(input.value)"
+                        (click)=searchCity()>
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Add locations -->
+        <p3-weather-list></p3-weather-list>
+    </div>
+
+</div>

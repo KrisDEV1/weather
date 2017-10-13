@@ -1,0 +1,12 @@
+<div class="locations-widget">
+    <div class="loc-title-box">
+        <span class="lt-box-ico"><img src="assets/img/plus.png" alt="plus"></span>
+        <h2 class="title-box-primary">Add location</h2>
+        <h3 class="title-box-secondary">Did you know you can add favourite locations?</h3>
+    </div>
+    <div class="loc-list-box">
+        <ul>
+            <p3-weather *ngFor="let city of city" [city]="city"></p3-weather>
+        </ul>
+    </div>
+</div>
